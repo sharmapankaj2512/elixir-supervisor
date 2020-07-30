@@ -1,21 +1,15 @@
 # ThySupervisor
 
-**TODO: Add description**
+An example implementation of a supervisor in elixir
 
-## Installation
+## How to Play
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `thy_supervisor` to your list of dependencies in `mix.exs`:
+- Load app `iex -S mix`
+- Create supervisor `{:ok, sup_pid} = ThySupervisor.start_link([])`
+- Create a child `{:ok, child_pid} = ThySupervisor.start_child(sup_pid, {ThyWorker, :start_link, []})`
+- Display all proccess linked to supervisor `Process.info(sup_pid, :links)`
+- Kill child process `Process.exit(child_pid, :crash)`
+- Display all proccess linked to supervisor `Process.info(sup_pid, :links)`
+- Display all child processes of supervisor `ThySupervisor.which_children(sup_pid)`
 
-```elixir
-def deps do
-  [
-    {:thy_supervisor, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/thy_supervisor](https://hexdocs.pm/thy_supervisor).
 
