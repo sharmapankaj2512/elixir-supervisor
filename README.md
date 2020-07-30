@@ -1,4 +1,4 @@
-# ThySupervisor
+# Elixir Supervisor
 
 An example implementation of a supervisor in elixir
 
